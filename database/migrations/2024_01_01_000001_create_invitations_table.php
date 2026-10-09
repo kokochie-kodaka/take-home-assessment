@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('invitations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            // 課題1: アプリ側バリデーションがないと不正値が保存できるよう、DB では緩めにしている
             $table->string('title')->nullable();
             $table->string('guest_email')->nullable();
             $table->text('body')->nullable();

@@ -5,7 +5,6 @@
 @section('content')
     <div class="card">
         <h1>招待状編集 #{{ $invitation->id }}</h1>
-        <p class="muted">所有者 user_id: {{ $invitation->user_id }}（ログイン中: {{ auth()->id() }}）</p>
         <form method="POST" action="{{ route('invitations.update', $invitation) }}">
             @csrf
             @method('PUT')

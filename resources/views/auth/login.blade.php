@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
         <h1>ログイン</h1>
-        <p class="muted">課題確認用アカウント（パスワードはいずれも <code>password</code>）</p>
+        <p class="muted">テスト用アカウント（パスワードはいずれも <code>password</code>）</p>
         <ul class="muted">
             <li>alice@example.com</li>
             <li>bob@example.com</li>

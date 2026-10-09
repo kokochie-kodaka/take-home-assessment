@@ -84,7 +84,7 @@
 </head>
 <body>
     <header>
-        <div>招待状下書き管理（課題用アプリ）</div>
+        <div>招待状下書き管理</div>
         @auth
             <div>
                 {{ auth()->user()->name }} /

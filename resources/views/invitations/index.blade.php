@@ -30,7 +30,6 @@
                         <td>{{ $invitation->id }}</td>
                         <td>
                             <strong>{{ $invitation->title }}</strong>
-                            {{-- BUG-2 再現用: ループ内で関連を都度参照 --}}
                             <div class="comments">
                                 コメント {{ $invitation->guestComments->count() }}件:
                                 @foreach ($invitation->guestComments as $comment)

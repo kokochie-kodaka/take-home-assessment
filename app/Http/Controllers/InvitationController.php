@@ -8,15 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-/**
- * 課題用コントローラです。意図的に問題のある実装を含みます。
- * 候補者の方は CHALLENGE.md を読んで修正してください。
- */
 class InvitationController extends Controller
 {
     public function index(): View
     {
-        // BUG-2: N+1 を誘発しやすい読み方（eager load していない）
         $invitations = Invitation::query()
             ->where('user_id', Auth::id())
             ->orderByDesc('id')
@@ -32,7 +27,6 @@ class InvitationController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        // BUG-1: バリデーション不足（空文字・不正メール・不正 status を許可してしまう）
         $invitation = new Invitation();
         $invitation->user_id = Auth::id();
         $invitation->title = $request->input('title');
@@ -53,7 +47,6 @@ class InvitationController extends Controller
 
     public function update(Request $request, Invitation $invitation): RedirectResponse
     {
-        // BUG-3: 所有者チェックなし（他ユーザーの招待状を更新できてしまう）
         $invitation->title = $request->input('title');
         $invitation->guest_email = $request->input('guest_email');
         $invitation->body = $request->input('body');
@@ -67,7 +60,6 @@ class InvitationController extends Controller
 
     public function destroy(Invitation $invitation): RedirectResponse
     {
-        // BUG-3: 所有者チェックなし（他ユーザーの招待状を削除できてしまう）
         $invitation->delete();
 
         return redirect()
