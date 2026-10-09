@@ -8,16 +8,18 @@
   "portsAttributes": {
     "8000": {
       "label": "Laravel",
-      "onAutoForward": "notify"
+      "onAutoForward": "openBrowser"
     }
+  },
+  "remoteEnv": {
+    "XDEBUG_MODE": "off"
   },
   "postCreateCommand": "bash .devcontainer/setup.sh",
   "postStartCommand": "bash .devcontainer/start.sh",
   "customizations": {
     "vscode": {
       "extensions": [
-        "bmewburn.vscode-intelephense-client",
-        "xdebug.php-debug"
+        "bmewburn.vscode-intelephense-client"
       ],
       "settings": {
         "php.validate.executablePath": "/usr/local/bin/php"

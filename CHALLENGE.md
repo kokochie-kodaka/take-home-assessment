@@ -52,4 +52,4 @@
 
 ## 起動方法
 
-`README.md` を参照（GitHub Codespaces 推奨）。
+`README.md` を参照（GitHub Codespaces 専用）。

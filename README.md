@@ -1,44 +1,25 @@
 # 招待状下書き管理アプリ（採用技術課題）
 
 Laravel 10 + SQLite の小さな Web アプリです。  
-**GitHub Codespaces** でブラウザだけで起動・修正できるようにしてあります。
+**GitHub Codespaces** でブラウザだけで起動・修正できます。
 
 課題内容は [`CHALLENGE.md`](./CHALLENGE.md) を読んでください。
 
 ---
 
-## 方法A: GitHub Codespaces（推奨）
+## 起動手順（GitHub Codespaces）
 
 1. GitHub でこのリポジトリを開く
 2. **Code → Codespaces → Create codespace on main**
 3. 初回は `postCreateCommand` で `composer install` / migrate / seed が走ります（数分）
-4. ターミナルで起動:
+4. 準備が終わると **ポート 8000** が転送され、ブラウザでアプリが開きます（開かない場合は **Ports** タブ → **8000** → **Open in Browser**）
+5. `alice@example.com` / `password` でログイン
 
-```bash
-php artisan serve --host=0.0.0.0 --port=8000
-```
+`postStartCommand` で `php artisan serve` も自動起動します。Codespace を再開したあとも、しばらく待ってから Ports の URL で開いてください。
 
-5. Ports タブの **8000** をブラウザで開く
-6. `alice@example.com` / `password` でログイン
+**注意:** アドレスバーが `http://localhost:8000` になっていると動きません。必ず `https://….app.github.dev` の URL を使います。
 
 作業が終わったら Codespace を **Stop**（不要なら Delete）してください。個人アカウントの無料枠を節約できます。
-
----
-
-## 方法B: ローカル
-
-要件: PHP 8.1+、Composer、SQLite 拡張
-
-```bash
-cp .env.example .env
-composer install
-php artisan key:generate
-touch database/database.sqlite
-php artisan migrate --seed
-php artisan serve
-```
-
-http://localhost:8000 を開いてください。
 
 ---
 
