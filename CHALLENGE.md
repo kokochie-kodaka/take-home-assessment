@@ -35,10 +35,65 @@
 - 再現のヒント: Alice / Bob それぞれに招待状があります。URL の ID を付け替えると、他ユーザーの招待状を編集・削除できてしまいます
 - 期待: 自分の招待状以外は更新・削除できないこと（403 など）
 
-## 提出物
+## 提出方法
 
-1. 修正したコード（Pull Request または patch / リポジトリ共有）
-2. `REPORT.md`（新規作成）に以下を日本語で記載
+**本家リポジトリの `main` には直接 push しないでください。** 次の手順で提出します。
+
+### 1. Fork する
+
+1. 案内された **本家リポジトリ**（課題配布元）を GitHub で開く
+2. 右上の **Fork** をクリックし、**自分のアカウント** にコピーを作成する
+
+以降の作業・Codespaces・push は **自分の Fork** に対して行います。
+
+### 2. 作業ブランチを作る
+
+Fork したリポジトリ上で、作業用ブランチを作成します（ブランチ名の例: **`test`**）。
+
+**GitHub の Web 上で作る場合**
+
+1. 自分の Fork を開く
+2. ブランチ選択（通常 `main` 表示）→ ブランチ名 `test` を入力して作成
+
+**Codespaces / ターミナルで作る場合**
+
+```bash
+git checkout -b test
+```
+
+### 3. 修正してコミット・push する
+
+1. 課題の修正と `REPORT.md` の作成を行う（内容は下記「提出物」）
+2. 作業ブランチ（例: `test`）にコミットする
+3. **自分の Fork** に push する（`main` ではなく作業ブランチ）
+
+```bash
+git add .
+git commit -m "課題の修正と REPORT を追加"
+git push -u origin test
+```
+
+### 4. Pull Request を作成する
+
+1. 自分の Fork の GitHub 画面で **Compare & pull request**（または **Pull requests → New pull request**）
+2. 方向を確認する  
+   - **base**: 本家リポジトリの `main`  
+   - **compare**: 自分の Fork の作業ブランチ（例: `test`）
+3. PR の説明に、わかれば補足（所要時間・AI 利用など）を書いて **Create pull request**
+
+### 5. 採用担当へ連絡する
+
+**作成した Pull Request の URL** を採用担当に送ってください。  
+（例: `https://github.com/<本家オーナー>/<リポジトリ名>/pull/123`）
+
+patch や zip 提出は不要です。PR と `REPORT.md` が提出物です。
+
+---
+
+## 提出物（PR に含めること）
+
+1. **修正したコード**（上記 PR の差分）
+2. **`REPORT.md`**（リポジトリ直下に新規作成）に以下を日本語で記載
    - 各課題の原因
    - 切り分け手順（どうやって確かめたか）
    - 修正内容と理由
@@ -53,4 +108,5 @@
 
 ## 起動方法
 
-`README.md` を参照（GitHub Codespaces 専用）。
+`README.md` を参照（GitHub Codespaces 専用）。  
+Codespaces は **自分の Fork** から作成してください（本家から作ると push できない場合があります）。

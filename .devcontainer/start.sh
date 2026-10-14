@@ -20,11 +20,7 @@ if [ ! -s database/database.sqlite ]; then
   php artisan db:seed --force
 fi
 
-if ! pgrep -f "artisan serve" >/dev/null 2>&1; then
-  XDEBUG_MODE=off nohup php artisan serve --host=0.0.0.0 --port=8000 \
-    > /tmp/laravel-serve.log 2>&1 &
-fi
-
 if [ -n "${APP_URL:-}" ]; then
-  echo "Laravel: ${APP_URL} (Ports → 8000 → Open in Browser)"
+  echo "Start the app: XDEBUG_MODE=off php artisan serve --host=0.0.0.0 --port=8000"
+  echo "Then open Ports → 8000 → Open in Browser (${APP_URL})"
 fi

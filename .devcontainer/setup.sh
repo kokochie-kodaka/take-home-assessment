@@ -31,6 +31,6 @@ php artisan config:clear
 
 echo ""
 echo "Setup complete."
-echo "App URL: ${APP_URL}"
-echo "Open Ports tab → 8000 → Open in Browser (do not use localhost)."
+echo "Run: XDEBUG_MODE=off php artisan serve --host=0.0.0.0 --port=8000"
+echo "Then Ports → 8000 → Open in Browser (${APP_URL})"
 echo "Login: alice@example.com / password"
